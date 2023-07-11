@@ -35,7 +35,6 @@ public class BreakfastsController : ApiController
         );
     }
 
-
     [HttpGet("{id:guid}")]
     public IActionResult GetBreakfast(Guid id)
     {
@@ -43,7 +42,8 @@ public class BreakfastsController : ApiController
 
         return getBreakfastResult.Match(
             breakfast => Ok(MapBreakfastRespose(breakfast)),
-            errors => Problem(errors));
+            errors => Problem(errors)
+        );
     }
 
     [HttpPut("{id:guid}")]
